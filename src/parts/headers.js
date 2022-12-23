@@ -1,53 +1,57 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-export default function headers() {
+export default function headers({theme,position}) {
   return (
-<header class="absolute w-full z-50 px-4">
-      <div class="container mx-auto py-5">
-        <div class="flex flex-stretch items-center">
-          <div class="w-56 items-center flex">
+<header className={[position, "absolute w-full z-50 px-4"].join(" ")}>
+      <div className="container mx-auto py-5">
+        <div className="flex flex-stretch items-center">
+          <div className="w-56 items-center flex">
+            <Link to="/">
             <img
-              src="images/content/logo.png"
+              src="/images/content/logo.png"
               alt="Luxspace | Fulfill your house with beautiful furniture"
             />
+            </Link>
           </div>
-          <div class="w-full"></div>
-          <div class="w-auto">
+          <div className="w-full"></div>
+          <div className="w-auto">
             <ul
-              class="fixed bg-white inset-0 flex flex-col invisible items-center justify-center opacity-0 md:visible md:flex-row md:bg-transparent md:relative md:opacity-100 md:flex md:items-center"
+              className="fixed bg-white inset-0 flex flex-col invisible items-center justify-center opacity-0 md:visible md:flex-row md:bg-transparent md:relative md:opacity-100 md:flex md:items-center"
               id="menu"
             >
-              <li class="mx-3 py-6 md:py-0">
-                <a href="#" class="text-black md:text-white hover:underline"
-                  >Showcase</a
-                >
+              <li className="mx-3 py-6 md:py-0">
+                <Link to="/showcase" className={["hover:underline", theme === "white" ? "text-black md:text-white":"text-white md:text-black" ].join (" ")} >
+                Showcase
+                </Link>
               </li>
-              <li class="mx-3 py-6 md:py-0">
-                <a href="#" class="text-black md:text-white hover:underline"
-                  >Catalog</a
-                >
+              <li className="mx-3 py-6 md:py-0">
+                <Link to="/catalog" className={["hover:underline", theme === "white" ? "text-black md:text-white":"text-white md:text-black"].join (" ")}>
+                Catalog
+                </Link>
+                
               </li>
-              <li class="mx-3 py-6 md:py-0">
-                <a href="#" class="text-black md:text-white hover:underline"
-                  >Delivery</a
-                >
+              <li className="mx-3 py-6 md:py-0">
+                <Link to="/delivery" className={["hover:underline", theme === "white" ? "text-black md:text-white":"text-white md:text-black"].join (" ")}>
+                Delivery
+                </Link >
               </li>
-              <li class="mx-3 py-6 md:py-0">
-                <a href="#" class="text-black md:text-white hover:underline"
-                  >Rewards</a
-                >
+              <li className="mx-3 py-6 md:py-0">
+                <Link to="/reward" className={["hover:underline", theme === "white" ? "text-black md:text-white":"text-white md:text-black"].join (" ")}>
+                Rewards
+                </Link>
               </li>
             </ul>
           </div>
-          <div class="w-auto">
-            <ul class="items-center flex">
-              <li class="ml-6 block md:hidden">
+          <div className="w-auto">
+            <ul className="items-center flex">
+              <li className="ml-6 block md:hidden">
                 <button
                   id="menu-toggler"
-                  class="relative flex z-50 items-center justify-center w-8 h-8 text-black md:text-white focus:outline-none"
+                  className="relative flex z-50 items-center justify-center w-8 h-8 text-black md:text-white focus:outline-none"
                 >
                   <svg
-                    class="fill-current"
+                    className="fill-current"
                     width="18"
                     height="17"
                     viewBox="0 0 18 17"
@@ -64,14 +68,13 @@ export default function headers() {
                   </svg>
                 </button>
               </li>
-              <li class="ml-6">
-                <a
-                  id="header-cart"
-                  class="flex items-center justify-center w-8 h-8 text-black md:text-white"
-                  href="cart.html"
+              <li className="ml-6">
+                <Link
+                  className={["flex items-center justify-center w-8 h-8", theme === "white" ? " text-black md:text-white" : " text-white md:text-black"].join(" ")}
+                  to="/cart"
                 >
                   <svg
-                    class="fill-current"
+                    className="fill-current"
                     width="26"
                     height="24"
                     viewBox="0 0 26 24"
@@ -92,7 +95,7 @@ export default function headers() {
                       d="M25.6499 4.508C25.407 4.22245 25.0472 4.05871 24.6626 4.05871H4.82655L4.42595 2.19571C4.34232 1.80709 4.06563 1.48078 3.68565 1.32272L0.890528 0.160438C0.567841 0.0261566 0.192825 0.168008 0.0528584 0.477043C-0.0872597 0.786176 0.0608116 1.14549 0.383347 1.27957L3.17852 2.4419L6.2598 16.7708C6.38117 17.3351 6.90578 17.7446 7.50723 17.7446H22.7635C23.1152 17.7446 23.4003 17.4715 23.4003 17.1346C23.4003 16.7976 23.1152 16.5245 22.7635 16.5245H7.50728L7.13247 14.7815H22.8814C23.4828 14.7815 24.0075 14.3719 24.1288 13.8076L25.9101 5.52488C25.9876 5.16421 25.8928 4.79349 25.6499 4.508ZM22.8814 13.5615H6.87012L5.08895 5.27879L24.6626 5.27884L22.8814 13.5615Z"
                     />
                   </svg>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
