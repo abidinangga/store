@@ -137,6 +137,6 @@ button[disabled] {
 }
 
 
-section:not(.bg-grey-100) + section.sitemap > div {
+/* section:not(.bg-grey-100) + section.sitemap > div {
   @apply border-t
-}
+} */
