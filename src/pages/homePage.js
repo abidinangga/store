@@ -7,7 +7,12 @@ import Client from'parts/Clients'
 import Sitemap from'parts/Sitemap'
 import Footer from'parts/Footer'
 
+import UseScrollAnchor from 'helpers/hooks/useScrollAnchor'
+import UseModalDOM from 'helpers/hooks/useModalDOM'
+
 export default function homePage() {
+  UseScrollAnchor()
+  UseModalDOM()
   return (
       <>
       <Header theme="white" position="absolute"></Header>

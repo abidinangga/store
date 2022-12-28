@@ -17,8 +17,8 @@ export default function Details() {
     </Breadcrumb>
     <ProductDetails></ProductDetails>
     <Suggestion></Suggestion>
-      <Sitemap></Sitemap>
-      <Footer></Footer>
-      </>
+    <Sitemap></Sitemap>
+    <Footer></Footer>
+    </>
   )
 }

@@ -1,23 +1,21 @@
 import "./assets/css/app.css";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import HomePage from "pages/homePage";
 import Details from "pages/Details";
 import Cart from "pages/Cart";
 import Congratulation from "pages/Congratulation";
 import NotFound from "pages/NotFound";
+import {Routes,Route} from "react-router-dom"
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Switch>
-        <Route exact path="/" component={HomePage}/>
-        <Route path="/catagories/:idc" component={Details}/>
-        <Route path="/cart" component={Cart}/>
-        <Route path="/congratulation" component={Congratulation}/>
-        <Route path="*" component={NotFound}/>
-        </Switch>
-      </Router>
+        <Routes>
+        <Route index path="/" element={<HomePage />} />
+        <Route path="/catagories" element={<Details />}/>
+        <Route path="/cart" element={<Cart />}/>
+        <Route path="/congratulation" element={<Congratulation />}/>
+        <Route path="*" element={<NotFound />}/>
+        </Routes>
     </div>
   );
 }

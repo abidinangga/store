@@ -16,7 +16,6 @@ export default function Breadcrumb({list}) {
                         </li>
                     )
                 })
-
             }
         </ul>
       </div>
@@ -25,6 +24,6 @@ export default function Breadcrumb({list}) {
 }
 
 
-Breadcrumb.prototype ={
-    list:PropTypes.array.isRequired,
+Breadcrumb.Prototype ={
+    list: PropTypes.array.isRequired,
 }

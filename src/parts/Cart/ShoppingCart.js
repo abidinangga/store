@@ -2,7 +2,6 @@ import React from 'react'
 
 export default function ShoppingCart() {
   return (
-    <div>
       <div className="w-full px-4 mb-4 md:w-8/12 md:mb-0" id="shopping-cart">
             <div
               className="flex flex-start mb-4 mt-8 pb-3 border-b border-gray-200 md:border-b-0"
@@ -173,6 +172,5 @@ export default function ShoppingCart() {
               </div>
             </div>
           </div>
-    </div>
   )
 }
