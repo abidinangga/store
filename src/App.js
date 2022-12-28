@@ -5,18 +5,19 @@ import Cart from "pages/Cart";
 import Congratulation from "pages/Congratulation";
 import NotFound from "pages/NotFound";
 import {Routes,Route} from "react-router-dom"
-
+import Provider from "helpers/hooks/useGlobalContext";
 function App() {
   return (
-    <div className="App">
+    <Provider>
         <Routes>
         <Route index path="/" element={<HomePage />} />
-        <Route path="/catagories" element={<Details />}/>
+        <Route path="/catagories/:idc" element={<Details />}/>
+        <Route path="/catagories/:idc/products/:idp" element={<Details />}/>
         <Route path="/cart" element={<Cart />}/>
         <Route path="/congratulation" element={<Congratulation />}/>
         <Route path="*" element={<NotFound />}/>
         </Routes>
-    </div>
+      </Provider>
   );
 }
 
