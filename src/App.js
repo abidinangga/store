@@ -12,7 +12,7 @@ function App() {
         <Routes>
         <Route index path="/" element={<HomePage />} />
         <Route path="/catagories/:idc" element={<Details />}/>
-        <Route path="/catagories/:idc/products/:idp" element={<Details />}/>
+        <Route path="/categories/:idc/products/:idp" element={<Details />}/>
         <Route path="/cart" element={<Cart />}/>
         <Route path="/congratulation" element={<Congratulation />}/>
         <Route path="*" element={<NotFound />}/>

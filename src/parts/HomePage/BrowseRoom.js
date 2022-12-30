@@ -1,6 +1,7 @@
 import React,{useEffect} from 'react'
 import useAsync from 'helpers/hooks/useAsync'
 import fecth from "helpers/fecth"
+import "helpers/format/thousand"
 
 function Loading({ratio={}}){
   const dummy =[
