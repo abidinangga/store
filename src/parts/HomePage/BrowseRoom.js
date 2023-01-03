@@ -1,10 +1,10 @@
-import React,{useEffect} from 'react'
-import useAsync from 'helpers/hooks/useAsync'
-import fecth from "helpers/fecth"
-import "helpers/format/thousand"
+import React, { useEffect } from "react";
+import useAsync from "helpers/hooks/useAsync";
+import fecth from "helpers/fecth";
+import "helpers/format/thousand";
 
-function Loading({ratio={}}){
-  const dummy =[
+function Loading({ ratio = {} }) {
+  const dummy = [
     {
       id: 1,
       ratio: {
@@ -33,14 +33,14 @@ function Loading({ratio={}}){
         md: "1/4",
       },
     },
-  ]
+  ];
   return dummy.map((item, index) => {
     return (
       <div
         key={item.id}
-        className={`relative card ${
-          ratio?.wrapper.default?.[item.ratio.default]
-        } ${ratio?.wrapper.md?.[item.ratio.md]}`}
+        className={`relative card ${ratio?.wrapper.default?.[item.ratio.default]} ${
+          ratio?.wrapper.md?.[item.ratio.md]
+        }`}
         style={{ height: index === 0 ? 180 : "auto" }}
       >
         <div className="bg-gray-300 rounded-lg w-full h-full">
@@ -55,13 +55,11 @@ function Loading({ratio={}}){
 }
 
 export default function BrowseRoom() {
-  const {data,run,isLoading} = useAsync()
+  const { data, run, isLoading } = useAsync();
 
   useEffect(() => {
-    run(
-      fecth({url:"/api/categories/?page=1&limit=4"})
-    )
-  }, [run])
+    run(fecth({ url: "/api/categories/?page=1&limit=4" }));
+  }, [run]);
 
   const ratioClassNames = {
     wrapper: {
@@ -75,10 +73,8 @@ export default function BrowseRoom() {
       },
     },
     meta: {
-      "1/9":
-        "left-0 top-0 bottom-0 flex justify-center flex-col pl-48 md:pl-72",
-      "1/4":
-        "left-0 top-0 bottom-0 flex justify-center flex-col pl-48 md:pl-72",
+      "1/9": "left-0 top-0 bottom-0 flex justify-center flex-col pl-48 md:pl-72",
+      "1/4": "left-0 top-0 bottom-0 flex justify-center flex-col pl-48 md:pl-72",
       "2/2":
         "inset-0 md:bottom-auto flex justify-center md:items-center flex-col pl-48 md:pl-0 pt-0 md:pt-12",
       "2/3":
@@ -90,43 +86,45 @@ export default function BrowseRoom() {
       <div className="container mx-auto">
         <div className="flex flex-start mb-4">
           <h3 className="text-2xl capitalize font-semibold">
-            browse the room <br className="" />that we designed for you
+            browse the room <br className="" />
+            that we designed for you
           </h3>
         </div>
-        
+
         <div className="grid grid-rows-2 grid-cols-9 gap-4">
-        {
-          isLoading ? <Loading ratio = {ratioClassNames}/>:
-          data.data.map((item,index)=>{
-            return <div key={item.id}
-            className={`relative card ${
-              ratioClassNames?.wrapper.default?.[item.ratio.default]
-            } ${ratioClassNames?.wrapper.md?.[item.ratio.md]}`}
-            style={{ height: index === 0 ? 180 : "auto" }}
-          >
-            <div className="card-shadow rounded-xl">
-              <img
-               src={`/images/content/${item.imageUrl}`}
-               alt={item.title}
-                className="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl"
-              />
-            </div>
-            <div
-                    className={`overlay ${
-                      ratioClassNames?.meta?.[item.ratio.md]
-                    }`}
-                  >
-           <h5 className="text-lg font-semibold">{item.title}</h5>
-           <span className="">
+          {isLoading ? (
+            <Loading ratio={ratioClassNames} />
+          ) : (
+            data.data.map((item, index) => {
+              return (
+                <div
+                  key={item.id}
+                  className={`relative ${
+                    ratioClassNames?.wrapper.default?.[item.ratio.default]
+                  } ${ratioClassNames?.wrapper.md?.[item.ratio.md]}`}
+                  style={{ height: index === 0 ? 180 : "auto" }}
+                >
+                  <div className="card-shadow rounded-xl">
+                    <img
+                      src={`/images/content/${item.imageUrl}`}
+                      alt={item.title}
+                      className="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl"
+                    />
+                    <div className={`overlay top-5 left-5  ${ratioClassNames?.meta?.[item.ratio.md]}`}>
+                    <h5 className="text-lg font-semibold">{item.title}</h5>
+                    <span className="">
                       {item.products.thousand()} item
                       {item.products > 1 ? "s" : ""}
                     </span>
                   </div>
-          </div>
+                  </div>
+                </div>
+                
+              );
             })
-        }
-      </div>
+          )}
+        </div>
       </div>
     </section>
-  )
+  );
 }

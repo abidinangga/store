@@ -97,7 +97,7 @@ function LoadingSuggestion() {
   );
 }
 
-export default function HomePage() {
+export default function Details() {
   const { idp } = useParams();
 
   const { data, error, run, isLoading, isError } = useAsync();
@@ -109,7 +109,6 @@ export default function HomePage() {
   return (
     <Document>
       <Header theme="black" />
-
       <Breadcrumb
         list={[
           { url: "/", name: "Home" },

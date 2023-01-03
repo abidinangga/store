@@ -16,12 +16,12 @@ export default function ProductDetails({ data }) {
           <span className="text-xl">{data.price.currency()}</span>
         </div>
         <div className="flex-1">
-          <div className="slider">
+          <div className="flex slider">
             <div className="thumbnail">
               {data?.imgUrls?.map((item) => {
                 return (
                   <div
-                    className="px-2"
+                    className="px-2 "
                     key={item}
                     onClick={() => setSlider(item)}
                   >

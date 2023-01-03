@@ -19,11 +19,12 @@ export default function Cart() {
       ></Breadcrumb>
       <section className="">
         <div className="container mx-auto px-2">
-          <div className="flex -mx-4 flex-wrap"></div>
+          <div className="flex -mx-4 flex-wrap">
+            <ShoppingCart></ShoppingCart>
+            <ShippingDetails></ShippingDetails>
+          </div>
         </div>
       </section>
-      <ShoppingCart></ShoppingCart>
-      <ShippingDetails></ShippingDetails>
       <Sitemap></Sitemap>
       <Footer></Footer>
     </Document>

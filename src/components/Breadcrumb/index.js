@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 
 export default function Breadcrumb({list}) {
   return (
-    <section className="bg-gray-100 py-2 px-4">
-      <div className="container flex mx-auto">
+    <section className="bg-gray-100 py-4 px-4">
+      <div className="container  mx-auto">
         <ul className="breadcrumb inline-flex">
             {
                 list?.map?.((item,index)=>{

@@ -42,9 +42,8 @@ export default function ShippingDetails() {
           cart: Object.keys(state.cart).map((key) => state.cart[key]),
         }),
       });
-
       if (res) {
-        navigate.push("/congratulation");
+        navigate("/congratulation");
         dispatch({
           type: "RESET_CART",
         });
@@ -142,7 +141,7 @@ export default function ShippingDetails() {
                             },
                           })
                         }
-                        className="border border-gray-200 focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full focus:outline-none"
+                        className="border border-gray-200 focus:border-red-500 flex items-center justify-center rounded-xl bg-white w-full h-full focus:outline-none"
                       >
                         <img
                           src={item.imgUrl}
@@ -180,7 +179,7 @@ export default function ShippingDetails() {
                             },
                           })
                         }
-                        className="border border-gray-200 focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full focus:outline-none"
+                        className="border border-gray-2 00 focus:border-red-500 flex items-center justify-center rounded-xl bg-white w-full h-full focus:outline-none"
                       >
                         <img
                           src={item.imgUrl}
